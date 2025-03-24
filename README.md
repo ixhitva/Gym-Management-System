@@ -1,83 +1,107 @@
-# TCPDF
-*PHP PDF Library*
+# Gym Management System
 
-[![Donate via PayPal](https://img.shields.io/badge/donate-paypal-87ceeb.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20TCPDF%20project)
-*Please consider supporting this project by making a donation via [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20TCPDF%20project)*
+The Gym Management System is a comprehensive web application designed to facilitate the management of a fitness center or gym. It offers a range of features for different user roles, including administrators, trainers, and students. This project is built using Next.js, Tailwind CSS, and integrates with various third-party services like Stripe for payments and Cloudinary for image management.
 
-* **category**    Library
-* **author**      Nicola Asuni <info@tecnick.com>
-* **copyright**   2002-2025 Nicola Asuni - Tecnick.com LTD
-* **license**     http://www.gnu.org/copyleft/lesser.html GNU-LGPL v3 (see LICENSE.TXT)
-* **link**        http://www.tcpdf.org
-* **source**      https://github.com/tecnickcom/TCPDF
+## Features
 
+- **Authentication and Authorization**: Secure login and role-based access control.
+- **User-specific Dashboards**: Custom dashboards for admins, trainers, and students.
+- **User Profile Management**: Update and manage user profiles, including images and personal information.
+- **User Management**: Admins can add, update, and delete users, and assign trainers to students.
+- **Attendance Tracking**: Track and manage student attendance.
+- **Exercise and Diet Management**: Create, assign, and manage exercise routines and diet plans.
+- **Fees Tracking and Payment**: Track fees, send reminders, and process payments via Stripe.
+- **Notifications**: Send and manage notifications for users.
+- **Responsive Design**: Fully responsive design for optimal viewing on all devices.
 
-## NOTE
-A new version of this library is under development at https://github.com/tecnickcom/tc-lib-pdf and as a consequence this library is in support only mode.
+## Installation
 
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/gym-management-system.git
+   ```
 
+2. **Navigate to the project directory**:
+   ```bash
+   cd gym-management-system
+   ```
 
-## Description
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-PHP library for generating PDF documents on-the-fly.
+4. **Set up environment variables**:
+   Create a `.env.local` file in the root directory and add the following variables:
+   ```
+   DATABASE_URL=<your_mongodb_uri>
+   NEXTAUTH_SECRET=<next_auth_secret>
+   NODE_ENV="development"
+   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=<your_cloudname>
+   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=<your_stripe_publishable_key>
+   NEXT_PUBLIC_STRIPE_SECRET_KEY=<your_stripe_secret_key>
+   ```
 
-### Main Features:
-* no external libraries are required for the basic functions;
-* all standard page formats, custom page formats, custom margins and units of measure;
-* UTF-8 Unicode and Right-To-Left languages;
-* TrueTypeUnicode, OpenTypeUnicode v1, TrueType, OpenType v1, Type1 and CID-0 fonts;
-* font subsetting;
-* methods to publish some XHTML + CSS code, Javascript and Forms;
-* images, graphic (geometric figures) and transformation methods;
-* supports JPEG, PNG and SVG images natively, all images supported by GD (GD, GD2, GD2PART, GIF, JPEG, PNG, BMP, XBM, XPM) and all images supported via ImagMagick (http://www.imagemagick.org/script/formats.php)
-* 1D and 2D barcodes: CODE 39, ANSI MH10.8M-1983, USD-3, 3 of 9, CODE 93, USS-93, Standard 2 of 5, Interleaved 2 of 5, CODE 128 A/B/C, 2 and 5 Digits UPC-Based Extension, EAN 8, EAN 13, UPC-A, UPC-E, MSI, POSTNET, PLANET, RMS4CC (Royal Mail 4-state Customer Code), CBC (Customer Bar Code), KIX (Klant index - Customer index), Intelligent Mail Barcode, Onecode, USPS-B-3200, CODABAR, CODE 11, PHARMACODE, PHARMACODE TWO-TRACKS, Datamatrix, QR-Code, PDF417;
-* JPEG and PNG ICC profiles, Grayscale, RGB, CMYK, Spot Colors and Transparencies;
-* automatic page header and footer management;
-* document encryption up to 256 bit and digital signature certifications;
-* transactions to UNDO commands;
-* PDF annotations, including links, text and file attachments;
-* text rendering modes (fill, stroke and clipping);
-* multiple columns mode;
-* no-write page regions;
-* bookmarks, named destinations and table of content;
-* text hyphenation;
-* text stretching and spacing (tracking);
-* automatic page break, line break and text alignments including justification;
-* automatic page numbering and page groups;
-* move and delete pages;
-* page compression (requires php-zlib extension);
-* XOBject Templates;
-* Layers and object visibility.
-* PDF/A-1b support.
+5. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-### Third party fonts:
+6. **Open your browser**:
+   Visit [http://localhost:3000](http://localhost:3000) to view the application.
 
-This library may include third party font files released with different licenses.
+## Usage
 
-All the PHP files on the fonts directory are subject to the general TCPDF license (GNU-LGPLv3),
-they do not contain any binary data but just a description of the general properties of a particular font.
-These files can be also generated on the fly using the font utilities and TCPDF methods.
+### Authentication Pages
+- **Sign In**: Users can log in using their email and password. Access is restricted to authorized users.
 
-All the original binary TTF font files have been renamed for compatibility with TCPDF and compressed using the gzcompress PHP function that uses the ZLIB data format (.z files).
+### Dashboard Pages
+- **Admin Dashboard**: View statistics and graphs related to user activity, attendance, and fees.
+- **Trainer Dashboard**: View statistics and graphs related to user activity and attendance.
+- **Student Dashboard**: View fees status, attendance graph, and activity status.
 
-The binary files (.z) that begins with the prefix "free" have been extracted from the GNU FreeFont collection (GNU-GPLv3).
-The binary files (.z) that begins with the prefix "pdfa" have been derived from the GNU FreeFont, so they are subject to the same license.
-For the details of Copyright, License and other information, please check the files inside the directory fonts/freefont-20120503
-Link : http://www.gnu.org/software/freefont/
+### User Profile Pages
+- **Profile Page**: View and update profile details, including images and personal information.
+- **Trainer Page**: View detailed information about trainers.
+- **Student Page**: View detailed information about students.
 
-The binary files (.z) that begins with the prefix "dejavu" have been extracted from the DejaVu fonts 2.33 (Bitstream) collection.
-For the details of Copyright, License and other information, please check the files inside the directory fonts/dejavu-fonts-ttf-2.33
-Link : http://dejavu-fonts.org
+### User Management Pages
+- **Add Member Page**: Admins can add trainers and students; trainers can add students.
+- **Manage User Page**: Admins can view, update, and delete user profiles, and assign trainers to students.
 
-The binary files (.z) that begins with the prefix "ae" have been extracted from the Arabeyes.org collection (GNU-GPLv2).
-Link : http://projects.arabeyes.org/
+### Trainers and Students Pages
+- **Trainers Page**: View a list of trainers with pagination support.
+- **Students Page**: View a list of students with pagination support.
 
-### ICC profile:
+### Attendance Pages
+- **Attendance Page**: Create and monitor student attendance.
+- **Student Attendance Page**: View and mark daily attendance.
 
-TCPDF includes the sRGB.icc profile from the icc-profiles-free Debian package:
-https://packages.debian.org/source/stable/icc-profiles-free
+### Exercise and Diet Pages
+- **Manage Exercise Page**: Add, view, and delete exercises.
+- **Assign Exercise Page**: Assign exercises to students with details like time period and sets.
+- **Manage Diet Food Page**: Add, view, and delete foods.
+- **Assign Diet Sheet Page**: Assign diet sheets to students with details like time period and meals.
+- **Student Exercise Page**: View exercise routines.
+- **Student Diet Sheet Page**: View diet sheets.
 
+### Fees Pages
+- **Fees Page**: Add, track, and send reminders for student fees.
+- **Student Fees Page**: View fees status, pay fees, and see fees history.
+- **Student Fees Stripe Checkout Page**: Pay fees using Stripe checkout.
+- **Student Payment Success Page**: View payment details after successful payment.
 
-## Developer(s) Contact
+### Notification Page
+- **Notification Page**: Send, view, and manage notifications.
 
-* Nicola Asuni <info@tecnick.com>
+## Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+## Contributing
+
+Contributions to the Gym Management System are welcome! Feel free to fork the repository, create a new branch, and submit pull requests.
+
+## Acknowledgements
+
+- This project was inspired by the need for a comprehensive gym management system.
